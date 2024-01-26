@@ -9,7 +9,7 @@ function home () {
             <div>
               <img src="/images/healthy-salad.jpg" alt="Healthy Salad" width="50%" />
               <div>
-                Photo by <a href="https://annapelzer.com/">Brenda Godinez</a> on <a href="https://unsplash.com/photos/bowl-of-vegetable-salads-IGfIGP5ONV0">Unsplash</a>
+                Photo by <a href="https://annapelzer.com/">Anna Pelzer</a> on <a href="https://unsplash.com/photos/bowl-of-vegetable-salads-IGfIGP5ONV0">Unsplash</a>
               </div>
             </div>
             <a href="/places">
