@@ -1,5 +1,6 @@
 const router = require('express').Router()
-const db = require('../models')
+const db = require('../models/mongoose_index')
+
 // INDEX
 router.get('/', (req, res) => {
     db.Place.find()
@@ -11,17 +12,7 @@ router.get('/', (req, res) => {
       res.render('error404')
     })
 })
-// POST
-router.post('/', (req, res) => {
-    db.Place.create(req.body)
-    .then(() => {
-        res.redirect('/places')
-    })
-    .catch(err => {
-        console.log('err', err)
-        res.render('error404')
-    })
-  })
+
 // NEW
 router.get('/new', (req, res) => {
   res.render('places/new')
@@ -37,6 +28,19 @@ router.get('/:id', (req, res) => {
         res.render('error404')
     })
 })
+
+// POST
+router.post('/', (req, res) => {
+    db.Place.create(req.body)
+    .then(() => {
+        res.redirect('/places')
+    })
+    .catch(err => {
+        console.log('err', err)
+        res.render('error404')
+    })
+  })
+
 // PUT
 router.put('/:id', (req, res) => {
   res.send('PUT /places/:id stub')

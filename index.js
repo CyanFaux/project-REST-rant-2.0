@@ -1,7 +1,9 @@
-require('dotenv').config()
 const express = require('express')
-const methodOverride = require('method-override')
+
+require('dotenv').config()
 const app = express()
+const methodOverride = require('method-override')
+
 
 // Express Settings
 app.set('views', __dirname + '/views')
@@ -21,7 +23,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.render('error404')
+    res.status(404).render('error404')
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT), () => {
+    console.log('listening on port', process.env.PORT)
+}

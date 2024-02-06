@@ -1,4 +1,4 @@
-const db = require('../models')
+const db = require('../models/mongoose_index')
 
 db.Place.create([{
     name: 'H-Thai-ML',
