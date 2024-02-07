@@ -1,68 +1,68 @@
-const router = require('express').Router()
-const db = require('../models/mongoose_index')
+const router = require("express").Router();
+const db = require("../models/mongoose_index");
 
 // INDEX
-router.get('/', (req, res) => {
-    db.Place.find()
+router.get("/", (req, res) => {
+  db.Place.find()
     .then((places) => {
-      res.render('places/index', { places })
+      res.render("places/index", { places });
     })
-    .catch(err => {
-      console.log(err) 
-      res.render('error404')
-    })
-})
+    .catch((err) => {
+      console.log(err);
+      res.render("error404");
+    });
+});
 
 // NEW
-router.get('/new', (req, res) => {
-  res.render('places/new')
-})
+router.get("/new", (req, res) => {
+  res.render("places/new");
+});
 // SHOW
-router.get('/:id', (req, res) => {
-    db.Place.findById(req.params.id)
-    .then(place => {
-        res.render('places/show', { place })
+router.get("/:id", (req, res) => {
+  db.Place.findById(req.params.id)
+    .then((place) => {
+      res.render("places/show", { place });
     })
-    .catch(err => {
-        console.log('err', err)
-        res.render('error404')
-    })
-})
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
+});
 
 // POST
-router.post('/', (req, res) => {
-    db.Place.create(req.body)
+router.post("/", (req, res) => {
+  db.Place.create(req.body)
     .then(() => {
-        res.redirect('/places')
+      res.redirect("/places");
     })
-    .catch(err => {
-        console.log('err', err)
-        res.render('error404')
-    })
-  })
+    .catch((err) => {
+      console.log("err", err);
+      res.render("error404");
+    });
+});
 
 // PUT
-router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
-})
+router.put("/:id", (req, res) => {
+  res.send("PUT /places/:id stub");
+});
 // DELETE
-router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
-})
+router.delete("/:id", (req, res) => {
+  res.send("DELETE /places/:id stub");
+});
 // EDIT
-router.get('/:id/edit', (req, res) => {
-  res.send('GET edit form stub')
-})
+router.get("/:id/edit", (req, res) => {
+  res.send("GET edit form stub");
+});
 // POST
-router.post('/:id/rant', (req, res) => {
-  res.send('GET /places/:id/rant stub')
-})
+router.post("/:id/rant", (req, res) => {
+  res.send("GET /places/:id/rant stub");
+});
 
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
-})
+router.delete("/:id/rant/:rantId", (req, res) => {
+  res.send("GET /places/:id/rant/:rantId stub");
+});
 
-module.exports = router
+module.exports = router;
 
 /* const router = require('express').Router()
 const places = require('../models/places.js')
