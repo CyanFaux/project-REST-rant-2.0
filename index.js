@@ -3,6 +3,13 @@ const express = require("express");
 require("dotenv").config();
 const app = express();
 const methodOverride = require("method-override");
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => { 
+    console.log('connected to mongo: ', process.env.MONGO_URI); 
+  })
+  .catch(error => {
+    console.error('Error connecting to MongoDB:', error);
+  });
 
 // Express Settings
 app.set("views", __dirname + "/views");
